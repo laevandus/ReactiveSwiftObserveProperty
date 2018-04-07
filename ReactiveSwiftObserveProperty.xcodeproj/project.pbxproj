@@ -12,6 +12,9 @@
 		C83D0B442078B9E9001815BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83D0B422078B9E9001815BA /* Main.storyboard */; };
 		C83D0B462078B9E9001815BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83D0B452078B9E9001815BA /* Assets.xcassets */; };
 		C83D0B492078B9E9001815BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83D0B472078B9E9001815BA /* LaunchScreen.storyboard */; };
+		C83D0B532078C1E0001815BA /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83D0B512078C1E0001815BA /* ReactiveSwift.framework */; };
+		C83D0B542078C1E0001815BA /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83D0B522078C1E0001815BA /* Result.framework */; };
+		C83D0B592078FD8E001815BA /* Pantry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83D0B582078FD8E001815BA /* Pantry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		C83D0B452078B9E9001815BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C83D0B482078B9E9001815BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C83D0B4A2078B9E9001815BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C83D0B512078C1E0001815BA /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		C83D0B522078C1E0001815BA /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		C83D0B582078FD8E001815BA /* Pantry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pantry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83D0B532078C1E0001815BA /* ReactiveSwift.framework in Frameworks */,
+				C83D0B542078C1E0001815BA /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				C83D0B3D2078B9E9001815BA /* ReactiveSwiftObserveProperty */,
 				C83D0B3C2078B9E9001815BA /* Products */,
+				C83D0B502078C1E0001815BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +65,22 @@
 			children = (
 				C83D0B3E2078B9E9001815BA /* AppDelegate.swift */,
 				C83D0B402078B9E9001815BA /* ViewController.swift */,
+				C83D0B582078FD8E001815BA /* Pantry.swift */,
 				C83D0B422078B9E9001815BA /* Main.storyboard */,
 				C83D0B452078B9E9001815BA /* Assets.xcassets */,
 				C83D0B472078B9E9001815BA /* LaunchScreen.storyboard */,
 				C83D0B4A2078B9E9001815BA /* Info.plist */,
 			);
 			path = ReactiveSwiftObserveProperty;
+			sourceTree = "<group>";
+		};
+		C83D0B502078C1E0001815BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C83D0B512078C1E0001815BA /* ReactiveSwift.framework */,
+				C83D0B522078C1E0001815BA /* Result.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +93,7 @@
 				C83D0B372078B9E9001815BA /* Sources */,
 				C83D0B382078B9E9001815BA /* Frameworks */,
 				C83D0B392078B9E9001815BA /* Resources */,
+				C83D0B552078C22B001815BA /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,11 +150,33 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C83D0B552078C22B001815BA /* Copy Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+			);
+			name = "Copy Carthage Frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Result.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C83D0B372078B9E9001815BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83D0B592078FD8E001815BA /* Pantry.swift in Sources */,
 				C83D0B412078B9E9001815BA /* ViewController.swift in Sources */,
 				C83D0B3F2078B9E9001815BA /* AppDelegate.swift in Sources */,
 			);
@@ -282,6 +324,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJPC47UM3W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReactiveSwiftObserveProperty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +346,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XJPC47UM3W;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ReactiveSwiftObserveProperty/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

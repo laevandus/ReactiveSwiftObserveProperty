@@ -7,19 +7,29 @@
 //
 
 import UIKit
+import ReactiveSwift
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    let pantry = Pantry()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // SignalProducer runs the closure immediately.
+        pantry.jams.producer.startWithValues { [weak self] (jams) in
+            self?.textView.text = jams.map({ $0.flavour.rawValue }).joined(separator: ", ")
+        }
+        // Signal runs the closure only when the property changes.
+        pantry.jams.signal.observeValues { (jams) in
+            print("Pantry has \(jams.count) jars of jam.")
+        }
+        pantry.add(jam: Jam(flavour: .orange))
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func addJam(_ sender: Any) {
+        pantry.add(jam: Jam(flavour: .apple))
     }
-
-
 }
 
